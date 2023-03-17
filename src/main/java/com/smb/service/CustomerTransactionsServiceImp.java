@@ -26,10 +26,4 @@ public class CustomerTransactionsServiceImp implements CustomerTransactionsServi
 		return customerTransactions;
 	}
 
-	@Override
-	public CustomerTransactions registerCustomer(CustomerTransactions customerTransactions) {
-		CustomerTransactions savedTransactions = transactionsRepository.save(customerTransactions);
-		return savedTransactions;
-	}
-
 }

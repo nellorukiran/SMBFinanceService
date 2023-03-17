@@ -1,7 +1,7 @@
 package com.smb.entity;
 
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,12 +17,12 @@ import lombok.Data;
 public class CustomerPaymentHistory {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "DUE_NO")
 	private int dueNo;
 	
 	@Column(name = "CUS_ID")
-	private int customerId;
+	private Long customerId;
 	
 	@Column(name = "DUE_DATE")
 	private String dueDate;
@@ -31,7 +31,7 @@ public class CustomerPaymentHistory {
 	private int paidAmount;
 	
 	@Column(name = "PAY_DATE")
-	private Date payDate;
+	private LocalDate payDate;
 	
 	@Column(name = "BAL_DUE")
 	private int balanceDue;
@@ -44,11 +44,11 @@ public class CustomerPaymentHistory {
 		this.dueNo = dueNo;
 	}
 
-	public int getCustomerId() {
+	public Long getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(int customerId) {
+	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
 
@@ -68,11 +68,13 @@ public class CustomerPaymentHistory {
 		this.paidAmount = paidAmount;
 	}
 
-	public Date getPayDate() {
+	
+
+	public LocalDate getPayDate() {
 		return payDate;
 	}
 
-	public void setPayDate(Date payDate) {
+	public void setPayDate(LocalDate payDate) {
 		this.payDate = payDate;
 	}
 

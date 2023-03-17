@@ -1,6 +1,6 @@
 package com.smb.entity;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -76,7 +76,7 @@ public class CustomerTransactions {
 	private int documentCharges;
 	
 	@Column(name = "PURCHASE_DATE")
-	private Date purchaseDate;
+	private LocalDate purchaseDate;
 	
 	@Column(name = "REC_STATUS")
 	private String fileStatus;
@@ -249,11 +249,11 @@ public class CustomerTransactions {
 		this.documentCharges = documentCharges;
 	}
 
-	public Date getPurchaseDate() {
+	public LocalDate getPurchaseDate() {
 		return purchaseDate;
 	}
 
-	public void setPurchaseDate(Date purchaseDate) {
+	public void setPurchaseDate(LocalDate purchaseDate) {
 		this.purchaseDate = purchaseDate;
 	}
 

@@ -9,6 +9,4 @@ public interface CustomerTransactionsService {
 	public List<CustomerTransactions> getCustomerTransactionsDetails();
 
 	public Optional<CustomerTransactions> getTransactionByCusId(Long cusId);
-
-	public CustomerTransactions registerCustomer(CustomerTransactions customerTransactions);
 }

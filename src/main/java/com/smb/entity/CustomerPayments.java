@@ -39,7 +39,7 @@ public class CustomerPayments {
 	private int eachDue;
 	
 	@Column(name = "PENALITY")
-	private int panality;
+	private int penality;
 	
 	@Column(name = "NEXT_DUE_AMT")
 	private int nextDueAmount;
@@ -138,12 +138,12 @@ public class CustomerPayments {
 		this.customerPhone = customerPhone;
 	}
 
-	public int getPanality() {
-		return panality;
+	public int getPenality() {
+		return penality;
 	}
 
-	public void setPanality(int panality) {
-		this.panality = panality;
+	public void setPenality(int penality) {
+		this.penality = penality;
 	}
 
 	public String getFileStatus() {
