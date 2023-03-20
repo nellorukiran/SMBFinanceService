@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.smb.controller.dao.RequiredResponse;
 import com.smb.entity.CustomerItemDetails;
 import com.smb.entity.CustomerPaymentHistory;
 import com.smb.entity.CustomerPayments;
@@ -39,6 +40,11 @@ public class GetCustomerController {
 	@GetMapping("/transactionDetails")
 	public ResponseEntity<List<CustomerTransactions>> getTransactionDetails(){
 		return new ResponseEntity<>(transactionsService.getCustomerTransactionsDetails(),HttpStatus.OK);
+	}
+	
+	@GetMapping("/smbuserdetails/{cusId}")
+	public ResponseEntity<RequiredResponse> smbuserdetails(@PathVariable Long cusId){
+		return new ResponseEntity<RequiredResponse>(transactionsService.smbuserdetails(cusId),HttpStatus.OK);
 	}
 	
 	@GetMapping("/transactionDetails/{cusId}")
