@@ -8,6 +8,7 @@ import com.smb.controller.dao.CustomerRegistrationMapping;
 import com.smb.entity.CustomerItemDetails;
 import com.smb.entity.CustomerPayments;
 import com.smb.entity.CustomerTransactions;
+import com.smb.exceptions.EmptyInputException;
 import com.smb.repository.CustomerItemDetailsRepository;
 import com.smb.repository.CustomerPaymentsRepository;
 import com.smb.repository.CustomerTransactionsRepository;
@@ -60,7 +61,9 @@ public class CustomerRegistrationServiceImp implements CustomerRegistrationServi
 		transaction.setDocumentCharges(customerRegisterMapping.getDocumentCharges());
 		transaction.setPurchaseDate(customerRegisterMapping.getPurchaseDate());
 		transaction.setFileStatus(customerRegisterMapping.getFileStatus());
-		
+		if(customerRegisterMapping.getCustomerId() < 0) {
+			throw new EmptyInputException("610","Input fields are empty, Please look into it!");
+		}
 		transactionsRepository.save(transaction);
 		return transaction;
 	}
@@ -80,7 +83,9 @@ public class CustomerRegistrationServiceImp implements CustomerRegistrationServi
 		payments.setNextDueAmount(customerRegisterMapping.getEachDue()+customerRegisterMapping.getPanality());
 		payments.setCustomerPhone(customerRegisterMapping.getCustomerPhone());
 		payments.setFileStatus(customerRegisterMapping.getFileStatus());
-		
+		if(customerRegisterMapping.getCustomerId() < 0) {
+			throw new EmptyInputException("610","Input fields are empty, Please look into it!");
+		}
 		customerPaymentsRepository.save(payments);
 		return payments;
 	}
@@ -95,6 +100,9 @@ public class CustomerRegistrationServiceImp implements CustomerRegistrationServi
 		itemDetails.setModelName(customerRegisterMapping.getModelName());
 		itemDetails.setDealPrice(customerRegisterMapping.getDealPrice());
 		itemDetails.setSaledPrice(customerRegisterMapping.getSaledPrice());
+		if(customerRegisterMapping.getCustomerId() < 0) {
+			throw new EmptyInputException("610","Input fields are empty, Please look into it!");
+		}
 		customerItemDetailsRepository.save(itemDetails);
 		return itemDetails;
 	}
